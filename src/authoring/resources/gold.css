@@ -1,0 +1,65 @@
+/* 
+    Document   : controlStyle2
+*/
+
+.root{
+    -fx-font-size: 8pt;
+    -fx-font-family: "Tahoma";
+    -fx-base: rgb(223, 185, 81);
+    -fx-background: rgb(167, 135, 50);
+    -fx-focus-color: rgb(182, 166, 120);
+}
+
+.button1{
+    -fx-text-fill: rgb(0,100,100);
+    -fx-background-color: rgb(223,185,81);
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 5;
+}
+
+.borders{
+    -fx-background-color: rgb(182, 166, 120);
+    -fx-border-color: rgb(223, 185, 81);
+    -fx-background-radius: 5;
+	-fx-background-insets: -10;
+	-fx-border-style: solid;
+    -fx-border-width: 5;
+    -fx-border-insets: -11;
+    -fx-border-radius: 5;
+}
+
+.outer-border{
+    -fx-background-color: rgb(167, 135, 50);
+    -fx-border-color: rgb(167, 135, 50);
+    -fx-background-radius: 5;
+	-fx-background-insets: -10;
+	-fx-border-style: solid;
+    -fx-border-width: 5;
+    -fx-border-insets: -11;
+    -fx-border-radius: 5;
+}
+
+.label{
+	-fx-text-fill: rgb(240, 240, 240);
+	-fx-stroke: black; 
+	-fx-stroke-width: 1;
+	-fx-font-size: 16pt;
+	-fx-font-family: "Tahoma"
+}
+
+.check-box{
+	-fx-text-fill: rgb(240, 240, 240);
+	-fx-stroke: black; 
+	-fx-stroke-width: 1;
+	-fx-font-family: "Tahoma"
+}
+
+.menu .label{
+	-fx-text-fill: rgb(0,100,100);
+	-fx-font-size: 12 pt;
+}
+
+.menu{
+	-fx-padding: -1 5 1 5;
+}

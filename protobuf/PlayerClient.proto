@@ -1,0 +1,124 @@
+syntax = "proto2";
+
+/*
+	Top-Level message
+*/
+
+message ClientMessage {
+	optional GetAvailableGames getAvailableGames = 1;
+	optional CreateGameRoom createGameRoom = 2;
+	optional JoinRoom joinRoom = 3;
+	optional ExitRoom exitRoom = 4;
+	optional LaunchGameRoom launchGameRoom = 5;
+	optional GetGameRooms getGameRooms = 6;
+	optional GetPlayerNames getPlayerNames = 7;
+	optional PerformUpdate performUpdate = 8; // Add one for passively requesting latest update?
+	optional PauseGame pauseGame = 9;
+	optional ResumeGame resumeGame = 10;
+	optional GetInventory getInventory = 11;
+	optional GetTemplateProperties getTemplateProperties = 12;
+	optional GetAllTemplateProperties getAllTemplateProperties = 13; // Should deprecate from PlayModelController interface?
+	optional GetElementCosts getElementCosts = 14;
+	optional PlaceElement placeElement = 15;
+	optional MoveElement moveElement = 16;
+	optional DeleteElement deleteElement = 17;
+	optional UpgradeElement upgradeElement = 18; // Has no corresponding response? Client doesn't check if upgrade succeeded
+	optional CheckReadyForNextLevel checkReadyForNextLevel = 19;
+	optional LoadLevel loadLevel = 20;
+	optional GetLevelElements getLevelElements = 21;
+	optional GetNumberOfLevels getNumLevels = 22;
+}
+
+/*
+	Pre-Game messages
+*/
+
+message GetAvailableGames {
+}
+
+message CreateGameRoom {
+	required string gameName = 1;
+	required string roomName = 2;
+}
+
+message JoinRoom {
+	required string roomName = 1;
+	required string userName = 2;
+}
+
+message ExitRoom {
+}
+
+message LaunchGameRoom {
+}
+
+message GetGameRooms {
+}
+
+message GetPlayerNames {
+}
+
+/*
+	In-Game messages
+	(Should these requests be stateful instead, to make the server relatively stateless? Need to balance against security / client privileges)
+*/
+
+message PerformUpdate {
+}
+
+message PauseGame {
+}
+
+message ResumeGame {
+}
+
+message GetInventory {
+}
+
+message GetTemplateProperties {
+	required string elementName = 1;
+}
+
+message GetAllTemplateProperties {
+}
+
+message GetElementCosts {
+}
+
+message PlaceElement {
+	required string elementName = 1;
+	required double xCoord = 2;
+	required double yCoord = 3;
+}
+
+message MoveElement {
+	required int32 elementId = 1;
+	required double newXCoord = 2;
+	required double newYCoord = 3;
+}
+
+message DeleteElement {
+	required int32 elementId = 1;
+}
+
+message UpgradeElement {
+	required int32 spriteId = 1;
+}
+
+message CheckReadyForNextLevel {
+}
+
+// Keep gameName parameter to support extensibility to collaborative editing (authoring) where arbitrary levels can be loaded, not just next level
+message LoadLevel {
+	required string gameName = 1;
+	required int32 level = 2;
+}
+
+// Keep level parameter to support extensibility to collaborative editing as above
+message GetLevelElements {
+	required int32 level = 1;
+}
+
+message GetNumberOfLevels {
+}
+

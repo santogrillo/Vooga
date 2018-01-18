@@ -1,0 +1,30 @@
+/* 
+    Document   : controlStyle2
+*/
+
+.play-area {
+	-fx-background-radius: 5;
+	-fx-background-insets: -10;
+	-fx-border-color: rgb(150, 150, 180);
+	-fx-border-style: solid;
+    -fx-border-width: 5;
+    -fx-border-insets: -15;
+    -fx-border-radius: 5;
+}
+
+.toolbar {
+	-fx-background-color: rgb(150, 150, 180);
+	-fx-background-radius: 5;
+	-fx-background-insets: -20;
+}
+
+.left-bar {
+	-fx-background-color: rgb(133, 133, 160);
+	-fx-background-radius: 5;
+	-fx-background-insets: -20;
+	-fx-border-color: rgb(100, 100, 120);
+	-fx-border-style: solid;
+    -fx-border-width: 5;
+    -fx-border-insets: -25;
+    -fx-border-radius: 5;
+}

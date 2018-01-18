@@ -1,0 +1,70 @@
+syntax = "proto2";
+
+import "PlayerServer.proto";
+import "AuthorClient.proto";
+
+
+/*
+	Top-Level message
+*/
+
+message AuthoringServerMessage {
+	repeated ElementBaseConfigurationOption elementBaseConfigurationOptions = 1;
+	repeated AuxiliaryElementConfigurationOption auxiliaryElementConfigurationOptions = 2;
+	optional DefineElement elementAddedToInventory = 3;
+	optional int32 currentLevel = 4;
+	optional SpriteUpdate moveElement = 5;
+	repeated ElementUpgrade allDefinedElementUpgrades = 6;
+	repeated DoubleProperty resourceEndowments = 7;
+	optional int32 createdWaveNumber = 8;
+	repeated StringProperty waveProperties = 9;
+	repeated string possibleVictoryConditions = 10;
+	repeated string possibleDefeatConditions = 11;
+	repeated ConditionAssignment currentVictoryConditions = 12;
+	repeated ConditionAssignment currentDefeatConditions = 13;
+	optional AuthoringNotification notification = 14;
+	optional string error = 15;
+	optional bool forAuthoring = 16; 
+}
+
+message ElementBaseConfigurationOption {
+	required string configKey = 1;
+	repeated string configOptions = 2;
+}
+
+message AuxiliaryElementConfigurationOption {
+	required string configName = 1;
+	required string configClassName = 2;
+}
+
+message ElementUpgrade {
+	required string elementName = 1;
+	repeated StringProperties elementUpgrades = 2;
+}
+
+message DoubleProperty {
+	required string name = 1;
+	required double value = 2;
+}
+
+message StringProperties {
+	repeated StringProperty items = 1;
+}
+
+message StringProperty {
+	required string name = 1;
+	required string value = 2;
+}
+
+message ConditionAssignment {
+	required string conditionName = 1;
+	repeated int32 levelsUsingCondition = 2;
+}
+
+message AuthoringNotification {
+	optional Notification pregameNotification = 1;
+	optional DefineElement elementAddedToInventory = 2;
+	optional int32 levelCreated = 3;
+	optional int32 levelDeleted = 4;
+	repeated StringProperty waveCreated = 5; // ambitious
+}

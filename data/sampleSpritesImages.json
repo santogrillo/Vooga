@@ -1,0 +1,6 @@
+{
+	"Number of Tower Types": 2,
+    "List of Tower Images": ["towerImage1.jpg","towerImage2.jpg"],
+    "Number of Soldiers Types": 2,
+    "List of Soldier Images": ["soldierImage1.jpg","soldierImage2.jpg"]
+}

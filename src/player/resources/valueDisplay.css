@@ -1,0 +1,15 @@
+/* 
+    Document   : controlStyle2
+*/
+
+.coin-display {
+	-fx-background-color: rgb(49, 89, 23);
+	-fx-background-radius: 5;
+	-fx-background-insets: -5;
+}
+
+.label{
+	-fx-text-fill: rgb(255, 255, 255);
+	-fx-font-size: 20pt;
+	-fx-font-family: "Times New Roman"
+}

@@ -1,0 +1,1 @@
+{"1":"{\"description\":\"\"}\n{\"conditions\":{\"defeat\":\"lose all allies\",\"victory\":\"time limit reached\"}}\n{\"bank\":{\"resourceEndowments\":{},\"unitCosts\":{\"troop\":{},\"projectile\":{},\"tower\":{}}}}\n{}\n{\"gameElements\":[]}\n{\"inventory\":[\"troop\",\"projectile\",\"tower\"]}\n{\"health\":0}\n{\"points\":0}\n{\"timeLimits\":0}"}

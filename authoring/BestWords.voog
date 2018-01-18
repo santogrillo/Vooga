@@ -1,0 +1,1 @@
+{"1":"{\"description\":\"\"}\n{\"conditions\":{\"defeat\":\"run out of health\",\"victory\":\"kill all enemies\"}}\n{\"bank\":{\"resourceEndowments\":{\"Coins\":100.0},\"unitCosts\":{\"Bullet\":{},\"Tower\":{},\"RedBalloon\":{}}}}\n{}\n{\"gameElements\":[]}\n{\"inventory\":[\"Bullet\",\"Tower\",\"RedBalloon\"]}\n{\"health\":100}\n{\"points\":0}\n{\"timeLimits\":0}"}

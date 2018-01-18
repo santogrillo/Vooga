@@ -1,0 +1,167 @@
+syntax = "proto2";
+
+import "PlayerClient.proto";
+
+/*
+	Top-Level message
+*/
+
+message AuthoringClientMessage {
+	optional ExportGame exportGame = 1;
+	optional SetLevel setLevel = 2;
+	optional DeleteLevel deleteLevel = 3;
+	optional GetElementBaseConfigurationOptions getElementBaseConfig = 4;
+	optional GetAuxiliaryElementConfigurationOptions getAuxiliaryElementConfig = 5;
+	optional DefineElement defineElement = 6;
+	optional DefineElementUpgrade defineElementUpgrade = 7;
+	optional UpdateElementDefinition updateElementDefinition = 8;
+	optional DeleteElementDefinition deleteElementDefinition = 9;
+	optional AddElementToInventory addElementToInventory = 10;
+	optional GetCurrentLevel getCurrentLevel = 11;
+	optional MoveElement moveElement = 12;
+	optional DeleteElement deleteElement = 13;
+	optional UpdateElementProperties updateElementProperties = 14;
+	optional GetAllDefinedElementUpgrades getAllDefinedElementUpgrades = 15;
+	optional GetResourceEndowments getResourceEndowments = 16;
+	optional SetGameName setGameName = 17;
+	optional SetGameDescription setGameDescription = 18;
+	optional SetVictoryCondition setVictoryCondition = 19;
+	optional SetDefeatCondition setDefeatCondition = 20;
+	optional SetStatusProperty setStatusProperty = 21;
+	repeated ResourceEndowment setResourceEndowments = 22;
+	optional SetUnitCost setUnitCost = 23;
+	optional CreateWaveProperties createWaveProperties = 24;
+	optional EditWaveProperties editWaveProperties = 25;
+	optional GetWaveProperties getWaveProperties = 26;
+	optional GetPossibleVictoryConditions getPossibleVictoryConditions = 27;
+	optional GetPossibleDefeatConditions getPossibleDefeatConditions = 28;
+	optional GetCurrentVictoryConditions getCurrentVictoryConditions = 29;
+	optional GetCurrentDefeatConditions getCurrentDefeatConditions = 30;
+	optional bool forAuthoring = 31;
+}
+
+message ExportGame {
+}
+
+message SetLevel {
+	required int32 level = 1;
+}
+
+message DeleteLevel {
+	required int32 level = 1;
+}
+
+message GetElementBaseConfigurationOptions {
+}
+
+message GetAuxiliaryElementConfigurationOptions {
+	repeated Property baseConfigurationChoices = 1;
+}
+
+message DefineElement {
+	required string elementName = 1;
+	repeated Property properties = 2;
+}
+
+message DefineElementUpgrade {
+	required string elementName = 1;
+	required int32 upgradeLevel = 2;
+	repeated Property properties = 3;
+}
+
+message UpdateElementDefinition {
+	required string elementName = 1;
+	repeated Property properties = 2;
+	required bool retroactive = 3;
+}
+
+message DeleteElementDefinition {
+	required string elementName = 1;
+}
+
+message AddElementToInventory {
+	required string elementName = 1;
+}
+
+message GetCurrentLevel {
+}
+
+message UpdateElementProperties {
+	required int32 elementId = 1;
+	repeated Property properties = 2;
+}
+
+message GetAllDefinedElementUpgrades {
+}
+
+message GetResourceEndowments {
+}
+
+message SetGameName {
+	required string gameName = 1;
+}
+
+message SetGameDescription {
+	required string gameDescription = 1;
+}
+
+message SetVictoryCondition {
+	required string conditionIdentifier = 1;
+}
+
+message SetDefeatCondition {
+	required string conditionIdentifier = 1;
+}
+
+message SetStatusProperty {
+	required string propertyName = 1;
+	required double propertyValue = 2;
+}
+
+message ResourceEndowment {
+	required string name = 1;
+	required double amount = 2;
+}
+
+message SetUnitCost {
+	required string elementName = 1;
+	repeated ResourceEndowment elementCosts = 2;
+}
+
+message CreateWaveProperties {
+	repeated Property waveProperties = 1;
+	repeated string elementNamesToSpawn = 2;
+	required Point spawningPoint = 3;
+}
+
+message EditWaveProperties {
+	required int32 waveNum = 1;
+	required CreateWaveProperties editProperties = 2;
+}
+
+message GetWaveProperties {
+	required int32 waveNum = 1;
+}
+
+message GetPossibleVictoryConditions {
+}
+
+message GetPossibleDefeatConditions {
+}
+
+message GetCurrentVictoryConditions {
+}
+
+message GetCurrentDefeatConditions {
+}
+
+
+message Property {
+	required string name = 1;
+	required string value = 2;
+}
+
+message Point {
+	required double x = 1;
+	required double y = 2;
+}

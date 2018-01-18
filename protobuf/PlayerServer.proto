@@ -1,0 +1,183 @@
+syntax="proto2";
+
+
+/*
+	Top-Level message
+*/
+
+message ServerMessage {
+	optional Games availableGames = 1;
+	optional GameRoomCreationStatus gameRoomCreationStatus = 2;
+	optional GameRoomJoinStatus gameRoomJoinStatus = 3;
+	optional GameRoomLaunchStatus gameRoomLaunchStatus = 4;
+	optional Notification notification = 5;
+	optional GameRooms gameRooms = 6;
+	optional PlayerNames playerNames = 7;
+	optional ReadyForNextLevel readyForNextLevel = 8;
+	optional LevelInitialized levelInitialized = 9;
+	optional Update update = 10;
+	optional Inventory inventory = 11;
+	repeated TemplateProperties templateProperties = 12;
+	repeated ElementCost elementCosts = 13;
+	optional NewSprite elementPlaced = 14;
+	optional SpriteUpdate elementMoved = 15;
+	optional SpriteDeletion elementDeleted = 16;
+	repeated NewSprite levelSprites = 17;
+	optional NumberOfLevels numLevels = 18;
+	optional string error = 19;
+}
+
+/*
+	Pre-Game messages
+*/
+
+message Games {
+	repeated Game games = 1;
+}
+
+message Game {
+	required string name = 1;
+	required string description = 2;
+}
+
+message GameRoomCreationStatus {
+	optional string roomId = 1;
+	optional string error = 2;
+}
+
+message GameRoomJoinStatus {
+	required bool success = 1;
+	optional string error = 2;
+}
+
+/*
+	TODO : Send over static files (images) with custom message type to ensure all images are available to client with specified URL?
+	OR : Client can use Server URL to fetch images remotely? Separate (HTTP?) endpoint for that?
+*/
+
+message GameRoomLaunchStatus {
+	optional LevelInitialized initialState = 1;
+	optional string error = 2; // remove?
+}
+
+// Consider batching?
+message Notification {
+	optional PlayerJoined playerJoined = 1;
+	optional PlayerExited playerExited = 2;
+	optional LevelInitialized levelInitialized = 3;
+	// Could have batched the following 3 by using Update instead ...
+	optional NewSprite elementPlaced = 4;
+	optional SpriteUpdate elementMoved = 5;
+	optional SpriteDeletion elementDeleted = 6;
+}
+
+// Consider batching?
+message PlayerJoined {
+	required string userName = 1;
+}
+
+// Consider batching?
+message PlayerExited {
+	required string userName = 1;
+}
+
+
+message GameRooms {
+	repeated string roomNames = 1;
+}
+
+message PlayerNames {
+	repeated string userNames = 1;
+	optional string error = 2;
+}
+
+message ReadyForNextLevel {
+	required bool isReady = 1;
+}
+
+
+/*
+	In-Game messages
+*/
+
+message LevelInitialized {
+	optional Inventory inventory = 1;
+	optional Update spritesAndStatus = 2;
+	optional int32 numLevels = 3;
+	optional string error = 4;
+}
+
+message Update {
+	repeated NewSprite newSprites = 1;
+	repeated SpriteUpdate spriteUpdates = 2;
+	repeated SpriteDeletion spriteDeletions = 3;
+	optional StatusUpdate statusUpdates = 4;
+	optional ResourceUpdate resourceUpdates = 5;
+}
+
+message NewSprite {
+	required int32 spriteId = 1;
+	required string imageURL = 2;
+	required double imageHeight = 3;
+	required double imageWidth = 4;
+	required double spawnX = 5;
+	required double spawnY = 6;
+	required double spawnAngle = 7;
+	optional string error = 8;
+}
+
+message SpriteUpdate {
+	required int32 spriteId = 1;
+	required double newX = 2;
+	required double newY = 3;
+	required double newAngle = 4;
+}
+
+message SpriteDeletion {
+	required int32 spriteId = 1;
+}
+
+message StatusUpdate {
+	required bool levelCleared = 1;
+	required bool isWon = 2;
+	required bool isLost = 3;
+	required bool inPlay = 4;
+	required int32 currentLevel = 5;
+}
+
+message ResourceUpdate {
+	repeated Resource resources = 1;
+}
+
+message Inventory {
+	repeated string templates = 1;
+	optional string error = 2;
+}
+
+message TemplateProperties {
+	required string elementName = 1;
+	repeated TemplateProperty property = 2;
+	optional string error = 3;
+}
+
+message ElementCost {
+	required string elementName = 1;
+	repeated Resource costs = 2;
+	optional string error = 3;
+}
+
+message NumberOfLevels {
+	required int32 numLevels = 1;
+	optional string error = 2;
+}
+
+message TemplateProperty {
+	required string name = 1;
+	required string value = 2;
+}
+
+
+message Resource {
+	required string name = 1;
+	required double amount = 2;
+}

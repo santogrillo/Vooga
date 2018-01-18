@@ -1,0 +1,63 @@
+/* 
+    Document   : controlStyle2
+*/
+
+.root{
+    -fx-font-size: 8pt;
+    -fx-font-family: "Times New Roman";
+    -fx-base: rgb(66, 123, 230);
+    -fx-background: rgb(142, 193, 255);
+}
+
+.button{
+    -fx-text-fill: rgb(23,38,72);
+    -fx-border-color: rgb(23,38,72);
+    -fx-border-radius: 5;
+    -fx-padding: 3 6 6 6;
+}
+
+.borders{
+	-fx-background-color: rgb(142, 193, 255);
+    -fx-border-color: rgb(66, 123, 230);
+    -fx-background-radius: 5;
+	-fx-background-insets: -10;
+	-fx-border-style: solid;
+    -fx-border-width: 5;
+    -fx-border-insets: -11;
+    -fx-border-radius: 5;
+}
+
+.outer-border{
+    -fx-background-color: rgb(23,38,72);
+    -fx-border-color: rgb(23,38,72);
+    -fx-background-radius: 5;
+	-fx-background-insets: -10;
+	-fx-border-style: solid;
+    -fx-border-width: 5;
+    -fx-border-insets: -11;
+    -fx-border-radius: 5;
+}
+
+.label{
+	-fx-text-fill: rgb(240, 240, 240);
+	-fx-stroke: black; 
+	-fx-stroke-width: 1;
+	-fx-font-size: 16pt;
+	-fx-font-family: "Times New Roman"
+}
+
+.check-box{
+	-fx-text-fill: rgb(240, 240, 240);
+	-fx-stroke: black; 
+	-fx-stroke-width: 1;
+	-fx-font-family: "Times New Roman"
+}
+
+.menu .label{
+	-fx-text-fill: rgb(23,38,72);
+	-fx-font-size: 12 pt;
+}
+
+.menu{
+	-fx-padding: -1 5 1 5;
+}

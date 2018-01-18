@@ -1,0 +1,1 @@
+{"1":"{\"description\":\"\"}\n{\"conditions\":{\"defeat\":\"lose all allies\",\"victory\":\"kill all enemies\"}}\n{\"bank\":{\"resourceEndowments\":{\"Gold\":500.0},\"unitCosts\":{\"dsanfj\":{},\"sa\":{}}}}\nnull\n{\"gameElements\":[]}\n{\"inventory\":[\"dsanfj\",\"sa\"]}\n{\"health\":100}\n{\"points\":100}\n{\"timeLimits\":0}"}
